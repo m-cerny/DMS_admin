@@ -8,7 +8,9 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install the dependencies specified in the requirements.txt file
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apt-get update && \
+    apt-get install -y docker-ce-cli\
+    pip install --no-cache-dir -r requirements.txt
 
 # Expose the port the app will run on
 EXPOSE 8080
@@ -22,3 +24,4 @@ COPY main.py .
 
 # Alternatively, if you have an entrypoint script, you could use:
 ENTRYPOINT ["python", "main.py"]
+
