@@ -4,15 +4,25 @@ FROM debian:latest
 # Set the working directory inside the container
 WORKDIR /app
 
+SHELL ["/bin/bash", "-c"]
+
 # Copy the requirements file into the container
 COPY requirements.txt .
 
 # Install the dependencies specified in the requirements.txt file
 RUN apt-get update \
-     && apt-get install -y python3
-    #apt-get install -y docker-ce-cli &&\
-    #pip install --no-cache-dir -r requirements.txt
-
+    && apt-get install -y python3 python3-pip python3-venv
+RUN apt-get install -y ca-certificates curl
+RUN install -m 0755 -d /etc/apt/keyrings
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+RUN chmod a+r /etc/apt/keyrings/docker.asc
+RUN echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  tee /etc/apt/sources.list.d/docker.list > /dev/null
+RUN apt-get update && apt-get install -y docker-ce-cli
+RUN python3 -m venv .venv
+RUN source .venv/bin/activate && pip install --no-cache-dir -r requirements.txt
 # Expose the port the app will run on
 EXPOSE 8080
 
@@ -27,5 +37,5 @@ COPY main.py .
 ENTRYPOINT ["python", "main.py"]
 
 # Set default command
-CMD ["bash"]
+#CMD ["bash"]
 
