@@ -9,7 +9,7 @@ COPY requirements.txt .
 
 # Install the dependencies specified in the requirements.txt file
 RUN apt-get update \
-     && apt-get install python
+     && apt-get install python3
     #apt-get install -y docker-ce-cli &&\
     #pip install --no-cache-dir -r requirements.txt
 
