@@ -9,7 +9,7 @@ services:
       - app-network  # Optional: specify network if needed
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro
-      - ../../docker-data/dms/config/postfix-accounts.cf:ro
+      - ../../docker-data/dms/config/postfix-accounts.cf:/app:ro
 
 networks:
   app-network:  # Optional: define a custom network if you have multiple services
