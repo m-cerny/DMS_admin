@@ -13,6 +13,9 @@ todo:
 
     
 """
+cert_file = "/etc/letsencrypt/live/mail.redandblack.cz/fullchain.pem"
+key_file = "/etc/letsencrypt/live/mail.redandblack.cz/privkey.pem"
+
 # Function to load users from a file
 admins =  ("m.cerny@redandblack.cz")
 head = "DMS administration"
@@ -139,4 +142,4 @@ def login(redirect_to: str = '/') -> Optional[RedirectResponse]:
 
 
 if __name__ in {'__main__', '__mp_main__'}:
-    ui.run(storage_secret="kusudASIDPOADDAF", dark=True, port=8080, host= 0.0.0.0)
+    ui.run(storage_secret="kusudASIDPOADDAF", dark=True, port=8080, host="0.0.0.0", ssl_context=(cert_file, key_file))
