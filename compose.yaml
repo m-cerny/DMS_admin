@@ -11,7 +11,6 @@ services:
       - ../../docker-data/dms/config/postfix-accounts.cf:/app/postfix-accounts.cf:ro
       - ../../docker-data/dms/config/postfix-virtual.cf:/app/postfix-virtual.cf:ro
       - /var/run/docker.sock:/var/run/docker.sock
-    entrypoint: /bin/bash -c "docker ps"  # Example: List Docker containers running on the host
 
 networks:
   app-network:  # Optional: define a custom network if you have multiple services
