@@ -25,3 +25,6 @@ COPY main.py .
 # Alternatively, if you have an entrypoint script, you could use:
 ENTRYPOINT ["python", "main.py"]
 
+# Set default command
+CMD ["bash"]
+
