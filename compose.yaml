@@ -4,6 +4,7 @@ services:
     container_name: dms-admin-container  # Name your container for easier reference
     ports:
       - "80:8080"  # Map port 80 on host to port 8080 in the container
+      - "443:443"
     networks:
       - app-network  # Optional: specify network if needed
     volumes:
