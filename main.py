@@ -139,4 +139,4 @@ def login(redirect_to: str = '/') -> Optional[RedirectResponse]:
 
 
 if __name__ in {'__main__', '__mp_main__'}:
-    ui.run(storage_secret="kusudASIDPOADDAF", dark=True, port=8080)
+    ui.run(storage_secret="kusudASIDPOADDAF", dark=True, port=8080, host= 0.0.0.0)
