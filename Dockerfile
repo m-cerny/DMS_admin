@@ -1,5 +1,5 @@
 # Use the latest stable Python image with the specific version
-FROM python:3.13-bookworm
+FROM debian:latest
 
 # Set the working directory inside the container
 WORKDIR /app
