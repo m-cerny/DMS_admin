@@ -9,7 +9,6 @@ SHELL ["/bin/bash", "-c"]
 # Copy the requirements file into the container
 COPY requirements.txt .
 
-# Install the dependencies specified in the requirements.txt file
 RUN apt-get update \
     && apt-get install -y python3 python3-pip python3-venv
 RUN apt-get install -y ca-certificates curl
@@ -23,19 +22,11 @@ RUN echo \
 RUN apt-get update && apt-get install -y docker-ce-cli
 RUN python3 -m venv .venv
 RUN source .venv/bin/activate && pip install --no-cache-dir -r requirements.txt
-# Expose the port the app will run on
+
 EXPOSE 8080
 
-# Copy all the application files into the container
+# Copy the application file into the container
 COPY main.py .
-
-# Specify the command to run your application (e.g., Flask, Django, etc.)
-# Example if you are using Flask:
-# CMD ["python", "app.py"]
 
 # Alternatively, if you have an entrypoint script, you could use:
 ENTRYPOINT [".venv/bin/python", "main.py"]
-
-# Set default command
-#CMD ["bash"]
-

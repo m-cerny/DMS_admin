@@ -1,3 +1,2 @@
 nicegui
 passlib
-fastapi
