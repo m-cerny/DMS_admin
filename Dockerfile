@@ -34,7 +34,7 @@ COPY main.py .
 # CMD ["python", "app.py"]
 
 # Alternatively, if you have an entrypoint script, you could use:
-ENTRYPOINT ["python3", "main.py"]
+ENTRYPOINT [".venv/bin/python", "main.py"]
 
 # Set default command
 #CMD ["bash"]
