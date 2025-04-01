@@ -13,7 +13,7 @@ services:
         source: ../../docker-data/dms/config/postfix-accounts.cf
         target: /app/postfix-accounts.cf
       - type: bind
-        source: ./../docker-data/dms/config/postfix-virtual.cf
+        source: ../../docker-data/dms/config/postfix-virtual.cf
         target: /app/postfix-virtual.cf
 
 networks:
