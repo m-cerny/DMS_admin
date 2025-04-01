@@ -9,12 +9,6 @@ services:
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - /var/run/docker.sock:/var/run/docker.sock
-      - type: bind
-        source: ../../docker-data/dms/config/postfix-accounts.cf
-        target: /app/postfix-accounts.cf
-      - type: bind
-        source: ./../docker-data/dms/config/postfix-virtual.cf
-        targer: /app/postfix-virtual.cf
 
 networks:
   app-network:  # Optional: define a custom network if you have multiple services
