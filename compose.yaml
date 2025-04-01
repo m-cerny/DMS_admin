@@ -15,3 +15,4 @@ services:
 networks:
   app-network:  # Optional: define a custom network if you have multiple services
     driver: bridge
+    
