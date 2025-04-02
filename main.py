@@ -41,8 +41,8 @@ def load_aliases(filename='postfix-virtual.cf'):
     return aliases
 
 # Function to add new alias
-def add_alias():
-    pass
+def add_alias_(value):
+    ui.notify(value)
 
 def logout() -> None:
         app.storage.user.clear()
@@ -110,7 +110,7 @@ def admin_page() -> None:
                         ui.label(user_aliases[i])
                 except: ui.label("No aliases found")
         add_alias = ui.input('Add alias', password=False, validation={'Too short': lambda value: len(value) > 5})
-        ui.button('Confirm', on_click=lambda e: add_alias(add_alias.value))
+        ui.button('Confirm', on_click=lambda e: add_alias_(add_alias.value))
     else:
         with ui.header(elevated=True).style('background-color: #000000').classes('items-center justify-between'):
             ui.label("Red&Black email administration").classes('text-2xl') 
